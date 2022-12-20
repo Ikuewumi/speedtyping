@@ -1,0 +1,47 @@
+{
+   "name": "speedtyping",
+   "version": "0.0.0",
+   "private": true,
+   "type": "module",
+   "description": "A quick speed typing game",
+   "main": "index.js",
+   "scripts": {
+      "dev": "wireit",
+      "build": "wireit",
+      "test": "vitest --ui"
+   },
+   "wireit": {
+      "build": {
+         "command": "vite build"
+      },
+      "dev": {
+         "command": "vite"
+      }
+   },
+   "keywords": [
+      "vuejs",
+      "frontend",
+      "spa",
+      "sass",
+      "app",
+      "web components",
+      "lit"
+   ],
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/Ikuewumi/template-vue.git"
+   },
+   "author": "Ayobami Ikuewumi",
+   "license": "MIT",
+   "dependencies": {
+      "lit": "*"
+   },
+   "devDependencies": {
+      "@vitest/coverage-c8": "*",
+      "@vitest/ui": "*",
+      "sass": "^1.56.1",
+      "typescript": "*",
+      "vite": "*",
+      "vitest": "*"
+   }
+}
