@@ -1,0 +1,166 @@
+@use "../mixins/input.scss" as *;
+
+.game {
+   //TODO: remove before converting to w.c
+   place-self: center;
+
+
+
+
+   width: var(--w, min(95vw, 500px));
+   max-height: var(--h, min(500px, 95vh));
+   padding-block: var(--padding-block, 1.5em 1.8em);
+   place-self: center;
+   background: #fff;
+   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.02);
+   display: grid;
+   grid-template-columns: minmax(0.4rem, 1fr) minmax(0, 90%) minmax(0.4rem, 1fr);
+   grid-template-rows: auto 1fr;
+   row-gap: var(--g-game, 0.9em);
+
+
+   >* {
+      grid-column: 2 / -2;
+   }
+
+
+   strong {
+      font-size: var(--size-word, clamp(1.7ch, 2ch + 1vw, 4ch));
+      pointer-events: none;
+   }
+
+
+
+   input[data-game-input] {
+
+      @include buttons;
+      --bg: transparent;
+      --bg-h: transparent;
+      --border-w: 0.1px;
+      --border-w-h: 0.1px;
+      --border-color: rgb(0 0 0 / 0.1);
+      --border-color-h: rgb(0 0 0 / 0.1);
+      --outline-w: 0;
+      --clr: #444;
+      --pbl: 0.7em;
+      --pin: 1em;
+      --f: var(--f-sans);
+
+
+      &::placeholder {
+         font-weight: 100;
+         color: rgb(0 0 0 / 0.3)
+      }
+
+
+
+
+
+      cursor:default;
+   }
+
+
+
+
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+   }
+
+   button {
+      @include buttons;
+      --pbl: 0.4em;
+      --pin: 0.7em;
+      --border-w: 0.2px;
+      --border-w-h: 0.2px;
+      --bg: rgb(0 0 0 / 0.03);
+      --bg-h: rgb(0 0 0 / 0.03);
+      position: fixed;
+      inset: auto auto var(--top-offset) var(--left-offset);
+      z-index: 3;
+      outline: none;
+
+      &:focus {
+         box-shadow: 0 0 3px 0px rgb(0 0 0 / 0.2);
+      }
+
+      svg {
+         @include mSvg;
+         --w: 35px;
+         --bg: transparent;
+         --bg-h: transparent;
+      }
+   }
+
+
+   --top-offset: 5px;
+   --left-offset: var(--size-4);
+
+
+
+   timer-component {
+      position: fixed;
+      inset: 5px var(--size-4) auto auto;
+      --lh: 0.8; // --fmly: var(--f-sans);
+   }
+
+
+   .scores {
+
+
+
+      & {
+         display: grid;
+         width: 100%;
+         // place-content: center;
+         grid-template-columns: repeat(auto-fill, var(--scores-w, min(100px, 100%)));
+         grid-auto-rows: var(--scores-h, 70px);
+         gap: var(--g, 1em);
+
+
+         @media (max-width: 350px) {
+            grid-template-columns: none;
+         }
+      }
+
+
+
+
+      &>figure {
+         background: var(--menu-bg, #fff);
+         display: grid;
+         place-content: center;
+         text-align: center;
+         border-radius: var(--score-br, 0.2vmax);
+         box-shadow: var(--score-shadow, 0 0 2px -1px rgba(0, 0, 0, 0.9));
+         font-family: var(--f-scores, var(--f-sans));
+         cursor: pointer;
+
+
+         b {
+            font-size: clamp(1ch, 1ch + 0.2vw, 1.2ch);
+            font-weight: 400;
+         }
+
+         span {
+            font-size: var(--size-score, clamp(2ch, 2.5ch + 1vw, 3ch));
+         }
+
+
+         &.on {
+            outline: 2px solid var(--score-on-outline, rgba(114, 212, 235, 0.461));
+            background: var(--score-on, rgba(114, 212, 235, 0.161));
+         }
+      }
+
+   }
+
+
+
+   //  .select-menu main span.on {
+   //    outline: 2px solid var(--menu-bg-on-outline, rgba(114, 212, 235, 0.461));
+   //    background: var(--menu-bg-on, rgba(114, 212, 235, 0.161));
+   //  }
+
+}

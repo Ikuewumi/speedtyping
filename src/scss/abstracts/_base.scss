@@ -5,7 +5,9 @@
    line-height: 1.06;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
    line-height: 1;
 }
 
@@ -16,7 +18,7 @@ body {
    font-family: var(--f-sans);
    font-size: var(--size-mid);
 
-   
+
 }
 
 *::-webkit-scrollbar {
@@ -33,62 +35,65 @@ body {
    border-radius: 10vmax;
 }
 
-#app {
+[data-lit-app] {
    width: 100vw;
    min-height: 100vh;
    overflow-x: hidden;
-   // background-image: url('../../assets/texture.svg');
+
+   display: grid;
+   position: relative;
+   z-index: 1;
+
+
+
+
+
+   &>* {
+
+      z-index: 3;
+
+
+   }
+}
+
+#blur {
+   content: '';
+   position: fixed;
+   z-index: 0;
+   inset: 0 auto auto 0;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(199, 199, 199, 0.067);
+   opacity: 0.5;
+   filter: blur(10px);
+   background-image: url('/font.svg');
    background-position: center center;
    background-repeat: no-repeat;
    background-size: contain;
-   background-color: rgba(238, 238, 255, 0.275);
-}
-
-[data-f] {
-   display: grid;
-   gap: 0.6rem;
-
-   h3 {
-
-      font-size: var(--size-strong, clamp(1.6rem, 1.6rem + 2vw, 1.8rem));
-      font-family: var(--f-strong, 'Urbanist');
-      font-weight: var(--weight-strong, 400);
-   }
-
-
-   p {
-      font-size: 0.85em;
-   }
+   background-attachment: fixed;
+   background-color: rgba(218, 218, 230, 0.275);
+   // filter: blur(40px);
 }
 
 
+
+input,
+select,
+textarea {
+   font: inherit;
+   min-width: 0;
+}
 
 [data-f-container] {
    display: grid;
-   gap: 0.9rem;
-   margin-top: 0;
+   gap: var(--size-3);
+   align-items: stretch;
 
-   >* {
+   * {
       width: 100%;
    }
 
-
-   a {
-      text-decoration: none;
-   }
-
-
 }
-
-[data-f-container]:first-of-type {
-   margin-top: 0.7rem;
-}
-
-[data-f-container]+[data-f-container] {
-   margin-top: 2rem;
-
-}
-
 
 
 .cursor {

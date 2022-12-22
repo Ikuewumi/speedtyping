@@ -1,0 +1,45 @@
+select-component {
+   place-self: center;
+
+}
+
+
+.select-menu {
+   width: var(--w, min(700px, 90vw));
+   //TODO remove before converting to w.c
+   
+   
+   main {
+      display: grid;
+      width: 100%;
+      place-content: center;
+      // grid-auto-flow: column;
+      grid-template-columns: repeat(auto-fill, var(--menu-w, min(200px, 100%)));
+      grid-auto-rows: var(--menu-h, 100px);
+      gap: var(--g, 2em );
+
+
+
+      span {
+         background: var(--menu-bg, #fff);
+         display: grid;
+         place-items: center;
+         border-radius: var(--menu-br, 0.2vmax);
+         box-shadow: var(--menu-shadow, 0 0 2px -1px rgba(0 0 0 / 0.4));
+         cursor: pointer;
+
+         &.on {
+
+            outline: 2px solid var(--menu-bg-on-outline, rgba(114, 212, 235, 0.461));
+            background: var(--menu-bg-on, rgba(114, 212, 235, 0.161));
+
+         }
+      }
+
+   }
+
+   select {
+      display: none;
+   }
+
+}

@@ -34,7 +34,8 @@
    "author": "Ayobami Ikuewumi",
    "license": "MIT",
    "dependencies": {
-      "lit": "*"
+      "lit": "*",
+      "zod": "^3.20.2"
    },
    "devDependencies": {
       "@vitest/coverage-c8": "*",

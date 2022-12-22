@@ -8,4 +8,12 @@ hero-component {
    --g-header: 0.9rem;
    --g: 1.3rem;
    --g-btns: 0.7rem;
+   --border-width-btn-main: 0;
+   --border-width-btn: 0;
+   --bg-btn-h: var(--clr-custom-blue-a);
+   --bg-btn-main-h: var(--clr-custom-blue);
+   --bg-btn-main: var(--clr-custom-blue);
+   --clr-btn-main: var(--clr-light);
+   --clr-btn-main-h: var(--clr-light);
+   --clr-btn-h: var(--clr-light);
 }

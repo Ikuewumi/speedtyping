@@ -18,7 +18,7 @@ export class HeroComponent extends LitElement {
    @property()
    content?: Data = {
       "header": "Speed Typing",
-      "button": "Start Game!"
+      "button": "start!"
    }
 
    @property()
@@ -26,12 +26,20 @@ export class HeroComponent extends LitElement {
 
 
    updated() {
-      const btn = this.shadowRoot?.querySelector('a')! as HTMLAnchorElement
-      btn.addEventListener('click', _ => {
-         const evt = new CustomEvent('btn-click', { bubbles: true })
-         this.dispatchEvent(evt)
+      const btns = Array.from(this.shadowRoot?.querySelectorAll('a')!) as HTMLAnchorElement[]
 
+      btns.forEach(btn => { btn.removeEventListener('click', _ => { }) })
+
+      btns.forEach(btn => {
+         btn.addEventListener('click', _ => {
+
+            const evtName = btn.classList.contains('main') ? 'main-click' : 'btn-click'
+            const evt = new CustomEvent(evtName, { bubbles: true })
+            this.dispatchEvent(evt)
+
+         })
       })
+
    }
 
    disconnectedCallback() {
@@ -53,8 +61,8 @@ export class HeroComponent extends LitElement {
             <main>
                ${genAbout(this.content?.about ?? null)}
                <span>
-                  <a>${this.content?.button}</a>
-                  <a>settings</a>
+                  <a class="main">${this.content?.button}</a>
+                  <a class="secondary">settings</a>
                </span>
             </main>
 
@@ -69,7 +77,7 @@ export class HeroComponent extends LitElement {
    
    .hero-center {
       width: var(--w, 100%);
-      background-color: var(--bg, rgba(199, 199, 199, 0.0666666667));
+      background-color: var(--bg, transparent);
       background-image: var(--bg-img, none);
       background-size: cover;
       background-repeat: no-repeat;
@@ -133,9 +141,20 @@ export class HeroComponent extends LitElement {
       cursor: pointer;
       transition: 0.2s;
     }
+    .hero-center a.main {
+      background: var(--bg-btn-main, rgba(0, 0, 0, 0.04));
+      color: var(--clr-btn-main, var(--clr, #000));
+      border: var(--border-width-btn-main, 0.4px) solid var(--border-btn, rgba(0, 0, 0, 0.3));
+    }
+
+    .hero-center a.main:hover {
+      background: var(--bg-btn-main-h, rgba(0, 0, 0, 0.04));
+      color: var(--clr-btn-main-h, var(--clr, #000));
+    }
+
     .hero-center a:hover {
-      background: var(--bg-btn, rgba(61, 126, 146, 0.6));
-      color: var(--clr-btn, var(--clr, #ffe));
+      background: var(--bg-btn-h, rgba(61, 126, 146, 0.6));
+      color: var(--clr-btn-h, var(--clr, #ffe));
     }
 
    
@@ -144,9 +163,17 @@ export class HeroComponent extends LitElement {
 }
 
 
+
+
+
 declare global {
    interface HTMLElementTagNameMap {
       'hero-component': HeroComponent
+   }
+
+   interface HTMLElementEventMap extends ElementEventMap, DocumentAndElementEventHandlersEventMap, GlobalEventHandlersEventMap {
+      'main-click': {},
+      'btn-click': {}
    }
 }
 
