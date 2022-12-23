@@ -1,24 +1,49 @@
 import './scss/app.scss';
 import './scss/mixins/input.scss';
 import './scss/layout.scss';
+import './scss/components.scss';
 import './scss/components/hero-center.scss';
-import './scss/components/select-menu.scss';
-import './scss/components/settings.scss';
+import { GameLogic, HistoryProps } from './composables/game.js';
 
-//TODO uncomment lines when herocomponent is reinserted
-// import fontImg from './assets/font.svg'
-
-// const HeroComponent = document.querySelector('hero-component')!
-// HeroComponent.src = fontImg
-// HeroComponent.content = {
-//    "header": "Speed Typing",
-//    "button": "start!",
-//    "about": "Click on `space` to restart!"
-// }
+const HeroComponent = document.querySelector('hero-component')!
+HeroComponent.content = {
+   "header": "Speed Typing",
+   "button": "start!",
+   "about": "Click on `space` to restart!"
+}
 
 
-// const SelectComponent = document.querySelector('select-component')!
-// SelectComponent.options = ['normal', 'blitz']
+const els = {
+   start: document.querySelector('hero-component')!,
+   settings: document.querySelector('settings-component')!,
+   game: document.querySelector('game-component')!
+} as HistoryProps
+
+
+
+const g = new GameLogic(els)
+
+g.show('start')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const fileToDataUrl = (file: File): Promise<string> => {
 //    const p = new Promise((resolve, reject) => {

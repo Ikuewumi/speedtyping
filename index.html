@@ -10,37 +10,12 @@
   </head>
   <body>
    <div data-lit-app id="app">
-      <!-- <hero-component></hero-component> -->
-      <!-- <settings-component></settings-component> -->
+      <hero-component></hero-component>
+      <settings-component></settings-component>
+      <game-component></game-component>
 
 
-      <div class="game">
-         <timer-component></timer-component>
 
-         <strong>tractable</strong>
-         <input name="word" type="text" placeholder="Enter the word above" data-game-input>
-
-         <button>
-            <svg viewBox="0 0 26 26">
-               <use href="#settings_metro"></use>
-            </svg>
-         </button>
-
-
-         <section class="scores">
-            <figure class="on" title="current score">
-               <span>40</span>
-               <b>score</b>
-            </figure>
-
-
-            <figure title="high score">
-               <span>100</span>
-               <b>highscore</b>
-            </figure>
-         </section>
-
-      </div>
    </div>
    
    
@@ -71,6 +46,7 @@
    <script type="module" src="/src/components/Select.ts"></script>
    <script type="module" src="/src/components/Settings.ts"></script>
    <script type="module" src="/src/components/Timer.ts"></script>
+   <script type="module" src="/src/components/Game.ts"></script>
    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

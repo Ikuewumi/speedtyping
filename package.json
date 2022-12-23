@@ -43,6 +43,7 @@
       "sass": "^1.56.1",
       "typescript": "*",
       "vite": "*",
-      "vitest": "*"
+      "vitest": "*",
+      "wireit": "*"
    }
 }

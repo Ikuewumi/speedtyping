@@ -71,7 +71,7 @@ body {
    background-repeat: no-repeat;
    background-size: contain;
    background-attachment: fixed;
-   background-color: rgba(218, 218, 230, 0.275);
+   background-color: rgba(218, 218, 230, 0.895);
    // filter: blur(40px);
 }
 
@@ -108,4 +108,8 @@ img {
    width: 100vw;
    // min-height: 100vh;
    display: grid;
+}
+
+.none {
+   display: none !important;
 }

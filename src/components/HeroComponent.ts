@@ -91,7 +91,7 @@ export class HeroComponent extends LitElement {
       place-items: center;
       align-content: center;
       column-gap: 0em;
-      row-gap: var(--g, 1.4em);
+      row-gap: var(--g, 0.5em);
       padding-block: var(--pbl, 0);
       color: var(--clr, #000);
       text-align: center;
@@ -117,7 +117,7 @@ export class HeroComponent extends LitElement {
       font-family: var(--f-h1, "Urbanist");
       font-size: var(--size-h1, clamp(20px, 20px + 4vw, 3ch));
       font-weight: var(--weight, 300);
-      line-height: 0.9;
+      line-height: 0.8;
     }
     .hero-center main > span {
       display: flex;
